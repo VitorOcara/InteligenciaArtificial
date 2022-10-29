@@ -18,8 +18,8 @@ public class Busca_em_largura {
         this.destino = destino;
     }
     
-    public Node busca(Map map, Node node){
-        borda.add(node);
+    public Node busca(Node origin, Node destinity){
+        borda.add(origin);
         do {
             Node raiz = borda.remove();
             visitados.add(raiz.getState());

@@ -1,10 +1,25 @@
 package Atividade02;
 
+import java.awt.Taskbar.State;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        State origin = new State();
         System.out.println("hello");
+        Scanner scan = new Scanner(System.in);
+        String nameOrigin =  scan.nextLine();
 
-        Map map= new Map(createMap());
+        Map map = new Map(createMap());
+
+        for (State state : map.getMap()) {
+            if(state.name().equals(nameOrigin))
+                origin = state;
+        }
+
+
+
+        
     }
 
 
