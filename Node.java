@@ -32,6 +32,10 @@ public class Node {
     public Node() {
     }
 
+    public Node(State state) {
+        this.state = state;
+
+    }
 
     public Node(int custo, State state, Node pai) {
         this.custo = custo;

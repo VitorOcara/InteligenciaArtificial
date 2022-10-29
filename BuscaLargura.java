@@ -18,7 +18,7 @@ public class BuscaLargura {
         this.destino = destino;
     }
     
-    public Node busca(Node origin, Node destinity){
+    public Node busca(Node origin, State destinity){
         borda.add(origin);
         do {
             Node raiz = borda.remove();
@@ -29,7 +29,7 @@ public class BuscaLargura {
                 Node filho = new Node(transition.getCoast() + raiz.getCusto(), transition.getDestinity(), raiz);
 
                 if(!borda.contains(filho) || !visitados.contains(filho.getState())){
-                    if(filho.equals(destinity)){
+                    if(filho.getState().equals(destinity)){
                         return filho;
                     }
                     borda.add(filho);

@@ -1,6 +1,6 @@
 package Atividade02;
 
-import java.awt.Taskbar.State;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -12,21 +12,25 @@ public class Main {
 
         Map map = new Map(createMap());
 
-        for (State state : map.getMap()) {
-            if(state.name().equals(nameOrigin))
-                origin = state;
-        }
+        State target = new State();
 
+        for (State state : map.getMap()) {
+            if(state.getName().equals(nameOrigin)){
+                origin = state;
+            }
+            if(state.getName().equals("bucharest")){
+                target = state;
+            }
+
+        }
+    BuscaLargura b= new BuscaLargura();
+        b.busca(new Node(origin), target);
 
 
     }
 
-
-
-
-
     public static ArrayList<State> createMap() {
-        map = new ArrayList<>();
+        ArrayList<State> map = new ArrayList<>();
 
         State oradea = new State("oradea");
         State zerind = new State("zerind");
@@ -131,9 +135,6 @@ public class Main {
 
         neamt.addTransition(new Transition(iasi, 87));
         map.add(neamt);
-
-
-
 
         return map;
     }
