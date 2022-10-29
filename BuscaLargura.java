@@ -4,12 +4,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class Busca_em_largura {
+public class BuscaLargura {
     private Queue<Node> borda;
     private Stack<State> visitados;
     private Node destino;
 
-    public Busca_em_largura(){
+    public BuscaLargura(){
         this.borda = new LinkedList<Node>();
         this.visitados = new Stack<State>();
     }
