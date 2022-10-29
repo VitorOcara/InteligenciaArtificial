@@ -24,6 +24,19 @@ public class BuscaLargura {
             Node raiz = borda.remove();
             visitados.add(raiz.getState());
 
+            for ( Transition transition : raiz.getState().getTransitions()) {
+
+                Node filho = new Node(transition.getCoast() + raiz.getCusto(), transition.getDestinity(), raiz);
+
+                if(!borda.contains(filho) || !visitados.contains(filho.getState())){
+                    if(filho.equals(destinity)){
+                        return filho;
+                    }
+                    borda.add(filho);
+                }
+                
+            }
+
             
         } while (!borda.isEmpty());
 
