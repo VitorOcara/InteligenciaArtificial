@@ -8,13 +8,8 @@ public class State {
     private ArrayList<Transition> transitions;
 
 
-
-    public State(String name, ArrayList<Transition> transitions) {
-        this.name = name;
-        this.transitions = transitions;
-    }
-
     public State() {
+        this.transitions = new ArrayList<>();
     }
 
     public State(String name) {
@@ -45,7 +40,6 @@ public class State {
         this.transitions = transitions;
     }
     public void addTransition(Transition t){
-        transitions = new ArrayList<>();
         transitions.add(t);
     }
 }

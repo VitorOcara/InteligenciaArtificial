@@ -21,6 +21,7 @@ public class BuscaLargura {
     public Node busca(Node origin, State destinity){
         borda.add(origin);
         do {
+         
             Node raiz = borda.remove();
             visitados.add(raiz.getState());
 
