@@ -31,6 +31,7 @@ public class BuscaLargura {
 
                 if(!borda.contains(filho) || !visitados.contains(filho.getState())){
                     if(filho.getState().equals(destinity)){
+                        System.out.println(filho.getState().getName() + filho.getCusto());
                         return filho;
                     }
                     borda.add(filho);

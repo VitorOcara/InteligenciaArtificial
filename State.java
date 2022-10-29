@@ -13,6 +13,7 @@ public class State {
     }
 
     public State(String name) {
+        this.transitions = new ArrayList<>();
         this.name = name;
     }
 
