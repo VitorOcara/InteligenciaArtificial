@@ -6,26 +6,27 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         State origin = new State();
-        System.out.println("hello");
+        System.out.println("Digite o estado inicial");
         Scanner scan = new Scanner(System.in);
-        String nameOrigin =  scan.nextLine();
+        String nameOrigin = scan.nextLine();
 
         Map map = new Map(createMap());
 
         State target = new State();
 
         for (State state : map.getMap()) {
-            if(state.getName().equals(nameOrigin)){
+            if (state.getName().toLowerCase().equals(nameOrigin.toLowerCase())) {
                 origin = state;
             }
-            if(state.getName().equals("bucharest")){
+            if (state.getName().equals("bucharest")) {
                 target = state;
             }
-
         }
-    BuscaLargura b= new BuscaLargura();
-        b.busca(new Node(origin), target);
 
+        // BuscaLargura b = new BuscaLargura();
+        // b.busca(new Node(origin), target);
+        BuscaProfundidade bf = new BuscaProfundidade();
+        bf.busca(new Node(origin), target);
 
     }
 
