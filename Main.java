@@ -1,5 +1,3 @@
-package Atividade02;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 

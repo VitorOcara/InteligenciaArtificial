@@ -2,8 +2,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-import Atividade02.Node;
-
 public class BuscaCustoUniforme {
     private Queue<Node> borda;
     private Stack<State> visitados;

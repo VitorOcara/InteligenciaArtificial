@@ -1,5 +1,3 @@
-package Atividade02;
-
 public class Transition {
 
     private State destinity;

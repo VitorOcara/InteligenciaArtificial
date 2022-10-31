@@ -1,5 +1,3 @@
-package Atividade02;
-
 public class Node {
     private int custo;
     private State state;
