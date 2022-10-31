@@ -41,4 +41,9 @@ public class Node {
         this.pai = pai;
     }
 
+    public Node(State state, int custo) {
+        this.custo = custo;
+        this.state = state;
+    }
+
 }

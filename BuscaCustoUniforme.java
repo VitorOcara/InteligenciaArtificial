@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -5,44 +6,48 @@ import java.util.Stack;
 public class BuscaCustoUniforme {
     private Queue<Node> borda;
     private Stack<State> visitados;
-    private Node destino;
 
-    public BuscaCustoUniforme(){
+    public BuscaCustoUniforme() {
         this.borda = new LinkedList<Node>();
         this.visitados = new Stack<State>();
     }
 
-    public void setDestino( Node destino ){
-        this.destino = destino;
-    }
-    
-    public Node busca(Node origin, State target){
+    public Node busca(Node origin, State target) {
         borda.add(origin);
+        ArrayList<State> path = new ArrayList<>();
         do {
-         
+
             Node raiz = borda.remove();
-            if(raiz.getState().equals(target)){
-                return raiz;
+            if(!path.contains(raiz.getState())){
+                path.add(raiz.getState()); 
             }
+            if (raiz.getState().equals(target)) {
+                
+                Node n = raiz;
+                while (n!=origin) {
+                    System.out.println(n.getState().getName());
+                    n = n.getPai();
+                }
+                System.out.println("Custo total = " + raiz.getCusto());
+                return raiz;
+
+            }
+
             visitados.add(raiz.getState());
 
-            for ( Transition transition : raiz.getState().getTransitions()) {
+            for (Transition transition : raiz.getState().getTransitions()) {
 
-                Node filho = new Node(transition.getCoast() + raiz.getCusto(), transition.getDestinity(), raiz);
+                Node filho = new Node(transition.getCoast()+ raiz.getCusto(), transition.getDestinity(), raiz);
 
-                if(!borda.contains(filho) || !visitados.contains(filho.getState())){
+                if (!borda.contains(filho) || !visitados.contains(filho.getState())) {
+                    borda.add(filho);
+                } else if (borda.contains(filho) && filho.getCusto() > borda.remove().getCusto()) {
+                    borda.remove();
                     borda.add(filho);
                 }
-                else if(filho.getCusto() <  1 ) {
-                    
-                }
-                
             }
 
-            
         } while (!borda.isEmpty());
-
-
 
         return null;
     }

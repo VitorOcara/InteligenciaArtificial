@@ -23,8 +23,11 @@ public class Main {
 
         // BuscaLargura b = new BuscaLargura();
         // b.busca(new Node(origin), target);
-        BuscaProfundidade bf = new BuscaProfundidade();
-        bf.busca(new Node(origin), target);
+        // BuscaProfundidade bf = new BuscaProfundidade();
+        // bf.busca(new Node(origin), target);
+        BuscaCustoUniforme bcu = new BuscaCustoUniforme();
+        Node n = new Node(origin, 0);
+        bcu.busca(n, target);
 
     }
 
