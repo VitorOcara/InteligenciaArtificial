@@ -1,14 +1,15 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
 
 public class BuscaCustoUniforme {
-    private Queue<Node> borda;
+    private PriorityQueue<Node> borda;
     private Stack<State> visitados;
 
     public BuscaCustoUniforme() {
-        this.borda = new LinkedList<Node>();
+        this.borda = new PriorityQueue<Node>();
         this.visitados = new Stack<State>();
     }
 
@@ -41,8 +42,9 @@ public class BuscaCustoUniforme {
 
                 if (!borda.contains(filho) || !visitados.contains(filho.getState())) {
                     borda.add(filho);
-                } else if (borda.contains(filho) && filho.getCusto() > borda.remove().getCusto()) {
+                } else if (borda.contains(filho) && filho.getCusto() > borda.peek().getCusto()) {
                     borda.remove();
+                    
                     borda.add(filho);
                 }
             }

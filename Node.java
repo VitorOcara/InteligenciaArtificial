@@ -1,4 +1,4 @@
-public class Node {
+public class Node implements Comparable<Node> {
     private int custo;
     private State state;
     private Node pai;
@@ -44,6 +44,17 @@ public class Node {
     public Node(State state, int custo) {
         this.custo = custo;
         this.state = state;
+    }
+
+    @Override
+    public int compareTo(Node node) {
+        if(this.custo > node.getCusto()){
+            return 1;
+        }
+        if(this.custo < node.getCusto()){
+            return -1;
+        }
+        return 0;
     }
 
 }
