@@ -21,6 +21,8 @@ public class Main {
             }
         }
 
+        long startTime = System.currentTimeMillis();
+
         // BuscaLargura b = new BuscaLargura();
         // b.busca(new Node(origin), target);
         // BuscaProfundidade bf = new BuscaProfundidade();
@@ -28,6 +30,8 @@ public class Main {
         BuscaCustoUniforme bcu = new BuscaCustoUniforme();
         Node n = new Node(origin, 0);
         bcu.busca(n, target);
+        long finalTime = System.currentTimeMillis() - startTime;
+        System.out.println("Tempo de execução: " + finalTime + " Miligundos" );
 
     }
 
